@@ -82,6 +82,7 @@ public class Main {
         receta.setIngredientes(ingredientes);
        
         //Agregar pasos
+        //Espero que lo hayan hecho
         
         List<Paso> pasos = new ArrayList<>();
         
@@ -111,7 +112,7 @@ public class Main {
         
         receta.setDificultad(Dificultad.INTERMEDIO);
         
-        
+       
         
     }
 
