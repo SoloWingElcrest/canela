@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mx.itson.canela.entidades;
 
 /**
  *
  * @author Xylan
+ * Entidad de Pasos
  */
 public class Paso {
 
     private int orden;
     private String descripcion;
     
+    /**
+     * Getter & Setter
+     */
     /** 
      * @return the orden
      */

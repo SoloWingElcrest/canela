@@ -12,11 +12,13 @@ import java.util.Set;
 import mx.itson.canela.entidades.Ingrediente;
 import mx.itson.canela.entidades.Paso;
 import mx.itson.canela.entidades.Receta;
+import mx.itson.canela.entidades.Usuario;
 import mx.itson.canela.enumeradores.Dificultad;
 
 /** 
  *
  * @author Xylan
+ * Clase Main del proyecto, despliega los datos en consola
  */
 public class Main {
    
@@ -93,8 +95,7 @@ public class Main {
         
         Paso paso2 = new Paso();
         paso2.setOrden(2);
-        paso2.setDescripcion("Mezcla la harina para brownies chocolate Fudge de Betty Crocker® con el agua, el aceite y los huevos. Vierte la mezcla en un molde cuadrado de 30 x 20 cm previamente en harinado y hornea a 180 °C durante 25 minutos. Retira del horno y enfría.\n" +
-                              "Bate");
+        paso2.setDescripcion("Mezcla la harina para brownies chocolate Fudge de Betty Crocker® con el agua, el aceite y los huevos. Vierte la mezcla en un molde cuadrado de 30 x 20 cm previamente en harinado y hornea a 180 °C durante 25 minutos. Retira del horno y enfría.");
         pasos.add(paso2);
         
         Paso paso3 = new Paso();
@@ -104,17 +105,37 @@ public class Main {
         
         Paso paso4 = new Paso();
         paso4.setOrden(4);
-        paso4.setDescripcion("Desmolda y corta en cuadros. Unta los brownies con un poco de betún; dibuja el cabello y la boca con el chocolate fundido, coloca los ojos de azúcar y la nariz con las lunetas. Ofrece.");
+        paso4.setDescripcion("Desmolda y corta en cuadros. Unta los brownies con un poco de betún; dibuja el cabello y la boca con el chocolate fundido, coloca los ojos de azúcar y la nariz con las lunetas.");
         pasos.add(paso4);
         
         receta.setPasos(pasos);
         
         
         receta.setDificultad(Dificultad.INTERMEDIO);
+        Usuario usuario = new Usuario();
+        usuario.setNombre("lain");
+        usuario.setCorreo("lain@gmail.com");
+        usuario.setContraseña("Hesoyam");
+        receta.setUsuario(usuario);
         
-       
-        
+        System.out.println("*** RECETAS NESTLE ***");
+        System.out.println(" ");
+        System.out.println(receta.getNombre());
+        System.out.println("Subido por: " + receta.getUsuario().getNombre());
+        System.out.println(" ");
+        System.out.println("Dificultad: " + receta.getDificultad());
+        System.out.println(receta.getNumeroPorciones() + " porciones");
+        System.out.println(receta.getTiempo() + " minutos");
+        System.out.println(receta.getDescripcion());
+        System.out.println(" ");
+        System.out.println("Ingredientes:");
+        for (Ingrediente i : receta.getIngredientes()){
+            System.out.println(i.getNombre());
+        }
+        System.out.println(" ");
+        System.out.println("Pasos:");
+        for(Paso p : receta.getPasos()){
+            System.out.println(p.getOrden()+ ".- " + p.getDescripcion());
+        } 
     }
-
-    
 }

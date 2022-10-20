@@ -1,26 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mx.itson.canela.entidades;
 
+import com.google.gson.Gson;
 import java.util.List;
 import mx.itson.canela.enumeradores.Dificultad;
 
 /**
  *
  * @author Xylan
+ * Entidad de Receta
  */
 public class Receta {
-    
+
+   
     private String nombre;
     private String descripcion;
     private int numeroPorciones;
     private int tiempo;
+    private Usuario usuario;
     private List<Ingrediente> ingredientes;
     private List<Paso> pasos;
     private Dificultad dificultad;
+    
+    /**
+     * Metodo de deserializacion, convierte las cadenas Json en objectos
+     * @param json
+     * @return 
+     */
+    public Receta deserializar(String json){
+        Receta receta = new Receta();
+        try{
+           receta = new Gson().fromJson(json, Receta.class);
+        } catch(Exception ex){
+            System.err.print("Ocurrio un error " + ex.getMessage());
+        }
+        return receta;
+    }
+    /**
+     * Getter & Setter
+     */
     /**
      * @return the nombre
      */
@@ -119,5 +136,19 @@ public class Receta {
         this.dificultad = dificultad;
     }
    
+     /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
          
 }
