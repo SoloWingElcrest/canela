@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import mx.itson.canela.entidades.Ingrediente;
 import mx.itson.canela.entidades.Paso;
 import mx.itson.canela.entidades.Receta;
+import mx.itson.canela.enumeradores.Dificultad;
 
 /**
  *
@@ -21,6 +22,7 @@ import mx.itson.canela.entidades.Receta;
  */
 public class Interfaz extends javax.swing.JFrame {
     
+
 
     /**
      * Creates new form Interfaz
@@ -308,10 +310,16 @@ public class Interfaz extends javax.swing.JFrame {
              lblUsuario.setText("Subido por: " + receta.getUsuario().getNombre());
              lblNumeroPorciones.setText("Numero de porciones: " + receta.getNumeroPorciones() + " Porciones");
              lblTiempo.setText("Tiempo de preparacion: " + receta.getTiempo() + " minutos");
-             lblDificultad.setText("Dificultad estimada: " + receta.getDificultad().INTERMEDIO);
              lblNombre2.setText(receta.getNombre());
              lblDescripcion.setText(receta.getDescripcion());
              
+             if(receta.getDificultad()== Dificultad.FACIL){
+                 lblDificultad.setText("Dificultad estimada: Facil");
+             }else if(receta.getDificultad() == Dificultad.INTERMEDIO){
+                 lblDificultad.setText("Dificultad estimada: Intermedio");
+             }else if(receta.getDificultad()== Dificultad.DESAFIANTE){
+                 lblDificultad.setText("Dificultad estimada: Desafiante");
+             }
              /**
               * Ajusta la cantidad de filas a cero en ambas tablas
               */
